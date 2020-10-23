@@ -1,7 +1,34 @@
-.Posts {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
+.App {
+    background-color: #392f42;
+    min-height: 146vh;
 }
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background-color: #eceff1;
+  }
+  
+  .navbar__link {
+    margin: 1em;
+    font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: .3em;
+    text-indent: .3em;
+    color: #181818;
+    border-bottom: 3px solid transparent;
+  }
+  
+  .navbar__link:hover {
+    transform: translateY(-2px);
+    color: rgb(177, 101, 14);
+  }
+  
+  .navbar__link--active {
+    border-bottom: 3px solid #282c32;
+    transition: border-bottom .5s ease-in-out;
+    
+  }

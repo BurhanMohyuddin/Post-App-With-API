@@ -1,64 +1,47 @@
 import React, { Component } from "react";
-import Post from "../../components/Post/Post";
-import FullPost from "../../components/FullPost/FullPost";
-import NewPost from "../../components/NewPost/NewPost";
-import axios from 'axios';
+import {BrowserRouter, NavLink, Route, Switch} from 'react-router-dom';
+import NewPost from '../App/NewPost/NewPost';
+import Posts from '../App/Posts/Posts';
+import FullPost from '../App/FullPost/FullPost';
 
 import './App.css';
 
 class App extends Component {
-  state = {
-    posts: [],
-    slectedId:null,
-    error: false
-  };
-  
-
-  componentDidMount () {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(response => {
-      const posts= response.data.slice(0,4);
-      const updatedPosts = posts.map(post => {
-        return {
-          ...post,
-          author: 'Burhan'
-        }
-      });
-      this.setState({posts: updatedPosts});
-      //console.log(response);
-    })
-    .catch(error => {
-      this.setState({error: true});
-    });
-  }
-
-  postSelectHandler(id) {
-    this.setState({slectedId: id})
-  }
-
+ 
   render() {
-    let posts = <p style={{textAlign: 'center'}}>Something went wrong...!</p>
-    if (!this.state.error){
-        posts = this.state.posts.map(post => {
-        return <Post key={post.id} 
-        title={post.title} 
-        author={post.author}
-        clicked={() => this.postSelectHandler(post.id)}/>
-      });
-    }
-
+    
     return (
+      <BrowserRouter>
       <div className="App">
-        <section className="Posts">
-          {posts}
-        </section>
-        <section>
-          <FullPost id={this.state.slectedId}/>
-        </section>
-        <section>
-          <NewPost />
-        </section>
+
+        <header>
+          <nav className="navbar">
+            <NavLink
+              to="/"
+              exact
+              activeClassName="navbar__link--active"
+              className="navbar__link"
+            >
+              <h5>Home</h5>
+            </NavLink>
+
+            <NavLink
+              to="/new-post"
+              activeClassName="navbar__link--active"
+              className="navbar__link"
+            >
+              <h5>New Post</h5>
+            </NavLink>
+          </nav>
+        </header>
+
+        <Route path="/" exact component={Posts}/>
+        <Switch>
+        <Route path="/new-post" component={NewPost} />
+        <Route path="/FullPost/:id" exact component={FullPost}/>
+        </Switch>
       </div>
+      </BrowserRouter>
     );
   }
 }

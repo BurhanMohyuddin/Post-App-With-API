@@ -1,20 +1,40 @@
 .Post {
-    width: 250px;
+    width: auto;
+    padding: 16px;
+    text-align: left;
+    margin: 10px;
+    
+    /* width: 250px;
     padding: 16px;
     text-align: center;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     margin: 10px;
     box-sizing: border-box;
+    cursor: pointer; */
+}
+.Title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    text-align: left;
     cursor: pointer;
+    color: #d3b668;
+
+}
+.Title:hover,
+.Title:active {
+    transform: translateY(-2px);
 }
 
-.Post:hover,
+/* .Post:hover,
 .Post:active {
     background-color: #C0DDF5;
-}
+} */
 
 .Author {
     margin: 16px 0;
-    color: #ccc;
+    color: rgb(214, 214, 214);
+}
+.Date {
+    color: wheat;
 }

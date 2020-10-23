@@ -1,0 +1,40 @@
+.FullPost {
+    width: 80%;
+    margin: 40px auto;
+}
+
+/* .Edit {
+
+} */
+
+
+.Edit button {
+    margin: 5px 0;
+    padding: 10px;
+    font: inherit;
+    border: 1px solid #fa923f;
+    background-color: transparent;
+    color: #fa923f;
+    cursor: pointer;
+    position: absolute;
+    top:60%;
+    right: 50%;
+}
+
+.Edit button:hover,
+.Edit button:active {
+    color: white;
+    background-color: #fa923f;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    text-align: left;
+    color: #d3b668;
+}
+.body {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: left;
+    color: #dfdfbb;
+}
