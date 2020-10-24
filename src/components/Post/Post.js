@@ -11,6 +11,9 @@ const post = (props) => (
             <div className="Author">{props.author}</div>
             <div className="Date">{props.date}</div>
         </div>
+        <div>
+            {props.name}
+        </div>
         
     </article>
 );

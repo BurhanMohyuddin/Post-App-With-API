@@ -7,6 +7,7 @@ import "./Posts.css";
 class Posts extends Component {
   state = {
     posts: [],
+    comments: [],
     slectedId: null,
     error: false,
   };
@@ -20,7 +21,7 @@ class Posts extends Component {
           return {
             ...post,
             author: "Burhan",
-            date: "23/10/2020"
+            date: "23/10/2020",
           };
         });
         this.setState({ posts: updatedPosts });
@@ -34,7 +35,7 @@ class Posts extends Component {
 
   postSelectHandler(id) {
     // this.setState({ slectedId: id });
-    this.props.history.push('/FullPost/' + id);
+    this.props.history.push("/FullPost/" + id);
   }
 
   render() {
@@ -43,16 +44,18 @@ class Posts extends Component {
       posts = this.state.posts.map((post) => {
         return (
             <Post
-              key={post.id}
-              title={post.title}
-              author={post.author}
-              date={post.date}
-              clicked={() => this.postSelectHandler(post.id)}
-            />
+            key={post.id}
+            title={post.title}
+            author={post.author}
+            date={post.date}
+            clicked={() => this.postSelectHandler(post.id)}
+          />
         );
       });
     }
-    return <section className="Posts">{posts}</section>;
+    return (
+        <section className="Posts">{posts}</section>
+    );
   }
 }
 
