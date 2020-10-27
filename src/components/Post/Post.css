@@ -14,11 +14,11 @@
     cursor: pointer; */
 }
 .Title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ultra', serif;
     font-size: 1.75rem;
     text-align: left;
     cursor: pointer;
-    color: #d3b668;
+    color: #EEC5B0;
 
 }
 .Title:hover,

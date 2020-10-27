@@ -6,7 +6,7 @@ import "./FullPost.css";
 class FullPost extends Component {
   state = {
     loadedPost: null,
-    loadedComment: null
+    loadedComments: []
   };
 
   componentDidMount() {
@@ -20,9 +20,11 @@ class FullPost extends Component {
               });
             
               axios
-              .get("https://jsonplaceholder.typicode.com/comments/" + this.props.match.params.id)
+              .get(`https://jsonplaceholder.typicode.com/comments?postId=${this.props.match.params.id}`)
               .then((response) => {
-                this.setState({ loadedComment: response.data });
+                 console.log("asddsaaskjsaldjlaksj",this.props);
+                this.setState({ loadedComments: response.data });
+                console.log("awddsaa",this.state.loadedComments);
               });
         }
     }
@@ -33,7 +35,7 @@ class FullPost extends Component {
       .then(response => {
           console.log("Post Deleted",response);
       })
-      axios.delete("https://jsonplaceholder.typicode.com/comments/" + this.props.match.params.id)
+      axios.delete(`https://jsonplaceholder.typicode.com/comments?postId=${this.props.match.params.id}`)
       .then(response => {
         console.log("Comment Deleted",response);
     })
@@ -44,13 +46,21 @@ class FullPost extends Component {
     if (this.props.match.params.id) {
          post = <p style={{ textAlign: "center", color:"wheat" }}>Loading....!</p>;
     }
-    if (this.state.loadedPost && this.state.loadedComment) {
+    if (this.state.loadedPost && this.state.loadedComments) {
       post = (
         <div className="FullPost">
           <h1 className="title">{this.state.loadedPost.title}</h1>
           <p className="body">{this.state.loadedPost.body}</p>
-          <p ><strong style={{color:"tomato"}}>Comments:-</strong></p>
-          <p className="comment">{this.state.loadedComment.body}</p>
+          <p ><strong style={{color:"tomato", textAlign: "left"}}>Comments:-</strong></p>
+          
+            {this.state.loadedComments.map(comment => {
+              return (
+              <p className="comment" key= {comment.id }>
+                
+                {comment.body}
+              </p>)
+            })}
+            
           <div className="Edit">
             <button className="Delete" onClick={this.deletePostHandler}>Delete</button>
           </div>

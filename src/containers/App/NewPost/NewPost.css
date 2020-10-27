@@ -17,11 +17,11 @@
 .NewPost select {
     display: block;
     width: 80%;
-    box-sizing: border-box;
     border: 1px solid rgb(0, 0, 0);
     outline: none;
     font: inherit;
     margin: auto;
+    border-radius: 7px;
 }
 
 .NewPost button {

@@ -1,15 +1,11 @@
 .FullPost {
-    width: 80%;
+    width: 70%;
     margin: 40px auto;
 }
 
-/* .Edit {
-
-} */
-
 
 .Edit button {
-    margin: 5px 0;
+    margin: 50px 0;
     padding: 10px;
     font: inherit;
     border: 1px solid #fa923f;
@@ -17,7 +13,6 @@
     color: #fa923f;
     cursor: pointer;
     position: absolute;
-    top:80%;
     right: 50%;
 }
 
@@ -28,18 +23,22 @@
 }
 
 .title {
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Alfa Slab One', cursive;
+    font-family: 'Permanent Marker', cursive; */
+    font-family: 'Ultra', serif;
     font-size: 1.75rem;
-    text-align: left;
-    color: #d3b668;
+    text-align: center;
+    color: #EEC5B0;
 }
 .body {
+    margin-top:7% ;
     font-family: 'Ubuntu', sans-serif;
-    text-align: left;
-    color: #dfdfbb;
+    text-align: center;
+    color: #e25a5d;
 }
 .comment {
     font-family: 'Ubuntu', sans-serif;
-    text-align: left;
-    color: #dfdfbb;
+    margin-top: 3%;
+    text-align: center;
+    color: #b9b4b2;
 }
